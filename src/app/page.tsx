@@ -1,27 +1,78 @@
 "use client";
-import Skills from "@/components/Skills";
 import Image from "next/image";
-import LetterGlitch from "@/components/LetterGlitch/LetterGlitch";
+import ProfileCard from "@/components/ProfileCard";
+import { MdLightMode } from "react-icons/md";
+import { MdDarkMode } from "react-icons/md";
+import { useModeStore } from "@/store/States";
+import Skills from "@/components/Skills";
+import CodingProfileCard from "@/components/CodingProfileCard";
+import ProjectsCard from "@/components/ProjectsCard";
 
 export default function Home() {
+  const mode = useModeStore((state) => state.mode);
+  const setMode = useModeStore((state) => state.setMode);
+
+  const darkBackground =
+    "bg-gradient-to-br from-black/95 via-black/90 to-black/95";
+  const lightBackground =
+    "bg-gradient-to-br from-[#111010] via-slate-500 to-[#111010]";
+
   return (
-    <div className="py-[20px] flex justify-center min-h-screen min-w-screen bg-gradient-to-br from-[#111010] via-slate-500 to-[#111010]">
-      <div className="py-[20px] flex flex-col gap-3 w-[800px]">
-        <div className="flex  gap-3 items-center h-[140px] w-full">
-          <div className="px-[30px] flex items-center w-[600px] bg-white/40 h-full rounded-2xl">
-            <Image
-              src="/akhand.jpeg"
-              width={100}
-              height={100}
-              alt=""
-              className="bg-black rounded-full"
-            ></Image>
-            <div className="px-[30px] py-[35px] h-full">
-              <p className="text-2xl font-bold">Akhand Pratap Singh </p>
-              <p>I am a {"developer"}</p>
+    <div
+      className={`py-[20px] flex justify-center min-h-screen min-w-screen max-xsm:px-[2px]  max-sm:px-[10px] sm:px-[20px] ${
+        mode === "dark" ? darkBackground : lightBackground
+      }`}
+    >
+      <div className="py-[20px] flex flex-col gap-3 w-full tmd:w-[800px]">
+        <div className="md:flex gap-3 items-center md:h-[140px] w-full">
+          <ProfileCard />
+          <div className="hidden md:flex flex-col py-[10px] justify-start items-center gap-3 h-full w-[50px] bg-black/40 rounded-xl">
+            {mode === "dark" ? (
+              <MdLightMode
+                className="cursor-pointer text-4xl text-white rounded-full bg-black p-1"
+                onClick={() => setMode("light")}
+              />
+            ) : (
+              <MdDarkMode
+                className="cursor-pointer text-4xl rounded-full bg-white p-1"
+                onClick={() => setMode("dark")}
+              />
+            )}
+            <div className="text-3xl flex justify-center w-[35px] h-[35px] rounded-full bg-white/70">
+              <p className="bg-gradient-to-br from-blue-500 via-purple-500 to-blue-500 text-transparent bg-clip-text">
+                #
+              </p>
             </div>
           </div>
-          <div className="w-[200px] h-full rounded-2xl grid grid-cols-2 grid-rows-2 px-[25px]">
+          <div
+            className={`${
+              mode === "dark"
+                ? "bg-gradient-to-br from-[#111010] via-slate-400 to-[#111010]"
+                : ""
+            } max-md:relative max-md:pl-[40px] w-full h-[80px] max-md:mt-[10px] md:w-[150px] md:h-full md:rounded-2xl grid grid-cols-4 md:grid-cols-2 md:grid-rows-2 px-[10px]`}
+          >
+            <div
+              className={`hidden absolute h-[80px] w-[40px] max-md:flex flex-col py-[10px] justify-start items-center gap-1 md:gap-3  bg-black/40 ${
+                mode === "light" ? "rounded-xl" : ""
+              }`}
+            >
+              {mode === "dark" ? (
+                <MdLightMode
+                  className="cursor-pointer text-3xl md:text-4xl text-white rounded-full bg-black p-1"
+                  onClick={() => setMode("light")}
+                />
+              ) : (
+                <MdDarkMode
+                  className="cursor-pointer text-3xl md:text-4xl rounded-full bg-white p-1"
+                  onClick={() => setMode("dark")}
+                />
+              )}
+              <div className="text-xl md:text-3xl flex justify-center items-center w-[25px] h-[25px] md:w-[35px] md:h-[35px] rounded-full bg-white/70">
+                <p className="bg-gradient-to-br from-blue-500 via-purple-500 to-blue-500 text-transparent bg-clip-text">
+                  #
+                </p>
+              </div>
+            </div>
             <div className="flex justify-center items-center">
               <a href="https://github.com/coderakhand" target="_blank">
                 <Image
@@ -69,73 +120,11 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative w-full h-[120px] overflow-hidden">
-          <Skills />
-        </div>
-        <div className="flex gap-6">
-          <div className="w-full h-[400px] bg-white/40 rounded-xl"></div>
-          <div className="relative w-full h-[400px] rounded-xl overflow-hidden">
-            <LetterGlitch
-              glitchColors={["#2b4539", "#61dca3", "#61b3dc"]}
-              glitchSpeed={50}
-              centerVignette={true}
-              outerVignette={false}
-              smooth={true}
-            />
-            <div className="h-full w-full absolute top-0 text-white text-xl flex flex-col items-center gap-3">
-              <div className=" m-[30px] w-full flex justify-center text-white font-bold text-4xl">
-                Coding Profiles
-              </div>
-              <div className="flex gap-5">
-                <Image
-                  src="/images/leetcode.svg"
-                  alt="LeetCode Logo"
-                  width={50}
-                  height={50}
-                  className="bg-white/98 rounded-xl p-[5px]"
-                />
-                <div className="flex justify-center items-center bg-white text-black h-full w-[250px] font-semibold rounded-2xl ">
-                  Highest Rating: 1680
-                </div>
-              </div>
-              <div className="flex gap-5">
-                <Image
-                  src="/images/codeforces.svg"
-                  alt="CodeForces Logo"
-                  width={50}
-                  height={50}
-                  className="bg-white/98 rounded-xl p-[5px]"
-                />
-                <div className="flex justify-center items-center bg-white text-black h-full w-[250px] font-semibold rounded-2xl ">
-                  Highest Rating: 1155
-                </div>
-              </div>
-              <div className="flex gap-5">
-                <Image
-                  src="/images/atcoder.svg"
-                  alt="AtCoder Logo"
-                  width={50}
-                  height={50}
-                  className="bg-white/98 rounded-xl p-[5px]"
-                />
-                <div className="flex justify-center items-center bg-white text-black h-full w-[250px] font-semibold rounded-2xl ">
-                  Highest Rating: 526
-                </div>
-              </div>
-              <div className="flex gap-5">
-                <Image
-                  src="/images/codechef.png"
-                  alt="CodeChef Logo"
-                  width={50}
-                  height={50}
-                  className="bg-white/98 rounded-xl"
-                />
-                <div className="flex justify-center items-center bg-white text-black h-full w-[250px] font-semibold rounded-2xl ">
-                  Highest Rating: 1519
-                </div>
-              </div>
-            </div>
-          </div>
+        <Skills />
+
+        <div className="flex max-md:flex-col gap-6">
+          <ProjectsCard />
+          <CodingProfileCard />
         </div>
       </div>
     </div>
