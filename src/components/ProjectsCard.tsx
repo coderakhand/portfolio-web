@@ -1,6 +1,4 @@
-"use client";
-import { useModeStore } from "@/store/States";
-import { motion } from "framer-motion";
+import MeshBgCard from "./MeshBgCard";
 import { useEffect, useRef, useState } from "react";
 
 const projects = [
@@ -30,7 +28,6 @@ const projects = [
 ];
 
 const ProjectsCard = () => {
-  const mode = useModeStore((state) => state.mode);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -57,44 +54,14 @@ const ProjectsCard = () => {
 
   return (
     <div className="relative w-full h-[400px] rounded-xl overflow-hidden">
-      <motion.svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="absolute inset-0 w-full h-full opacity-40"
-        initial={{ x: 0, y: 0, scale: 1 }}
-        animate={{
-          x: [-10, 10, -10],
-          y: [-10, 10, -10],
-          scale: [1, 1.3, 1],
-        }}
-        transition={{
-          duration: 20,
-          ease: "linear",
-          repeat: Infinity,
-        }}
-      >
-        <defs>
-          <pattern
-            id="squareMesh"
-            width="20"
-            height="20"
-            patternUnits="userSpaceOnUse"
-          >
-            <rect width="20" height="20" fill="transparent" />
-            <path
-              d="M0 0 L0 20 M0 0 L20 0"
-              stroke={mode === "light" ? "#0f172a" : "white"}
-              strokeWidth="0.7"
-              vectorEffect="non-scaling-stroke"
-            />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#squareMesh)" />
-      </motion.svg>
+      <MeshBgCard />
 
       <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-white/10 blur-sm pointer-events-none z-10" />
 
       <div className="relative z-20 p-4 h-full flex flex-col items-center justify-center gap-3">
-        <p className="bg-gradient-to-br from-slate-900 via-white/50 to-slate-900 text-transparent bg-clip-text font-semibold text-4xl">
+        <p
+          className={`bg-gradient-to-br from-slate-300 via-white/40 to-slate-300 text-transparent bg-clip-text font-semibold text-4xl`}
+        >
           Projects
         </p>
         <div
