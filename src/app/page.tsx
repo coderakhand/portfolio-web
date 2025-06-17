@@ -52,22 +52,23 @@ export default function Home() {
             } max-md:relative max-md:pl-[40px] w-full h-[80px] max-md:mt-[10px] md:w-[150px] md:h-full md:rounded-2xl grid grid-cols-4 md:grid-cols-2 md:grid-rows-2 px-[10px]`}
           >
             <div
-              className={`hidden absolute h-[80px] w-[40px] max-md:flex flex-col py-[10px] justify-start items-center gap-1 md:gap-3  bg-black/40 ${
+              className={`hidden absolute h-[80px] w-[40px] max-md:flex flex-col justify-center items-center gap-2  bg-black/90 ${
                 mode === "light" ? "rounded-xl" : ""
               }`}
             >
               {mode === "dark" ? (
                 <MdLightMode
-                  className="cursor-pointer text-3xl md:text-4xl text-white rounded-full bg-black p-1"
+                  className="cursor-pointer text-3xl text-white rounded-full bg-black p-1"
                   onClick={() => setMode("light")}
                 />
               ) : (
                 <MdDarkMode
-                  className="cursor-pointer text-3xl md:text-4xl rounded-full bg-white p-1"
+                  className="cursor-pointer text-3xl rounded-full bg-white p-1"
                   onClick={() => setMode("dark")}
                 />
               )}
-              <div className="text-xl md:text-3xl flex justify-center items-center w-[25px] h-[25px] md:w-[35px] md:h-[35px] rounded-full bg-white/70">
+
+              <div className="text-3xl flex justify-center items-center w-[25px] h-[25px] md:w-[35px] md:h-[35px] rounded-full bg-white/70">
                 <p className="bg-gradient-to-br from-blue-500 via-purple-500 to-blue-500 text-transparent bg-clip-text">
                   #
                 </p>
@@ -80,7 +81,7 @@ export default function Home() {
                   alt="Github Logo"
                   width={50}
                   height={50}
-                  className="hover:bg-white/30 cursor-pointer rounded-lg"
+                  className="w-[40px] md:w-[50px] max-sm:bg-[#EDEDED] hover:bg-white/30 cursor-pointer rounded-lg"
                 />
               </a>
             </div>
@@ -91,7 +92,7 @@ export default function Home() {
                   alt="Gmail Logo"
                   width={50}
                   height={50}
-                  className="hover:bg-white/30 cursor-pointer rounded-lg"
+                  className="w-[40px] sm:w-[50px] max-sm:bg-[#EDEDED] hover:bg-white/30 cursor-pointer rounded-lg"
                 />
               </a>
             </div>
@@ -102,7 +103,7 @@ export default function Home() {
                   alt="Linkedin Logo"
                   width={50}
                   height={50}
-                  className="cursor-pointer rounded-xl"
+                  className="w-[40px] sm:w-[50px] cursor-pointer rounded-lg md:rounded-xl"
                 />
               </a>
             </div>
@@ -113,7 +114,7 @@ export default function Home() {
                   alt="X Logo"
                   width={60}
                   height={60}
-                  className="cursor-pointer rounded-lg"
+                  className="w-[50px] sm:w-[60px] cursor-pointer rounded-lg"
                 />
               </a>
             </div>

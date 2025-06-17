@@ -3,16 +3,9 @@ import { useEffect, useRef, useState } from "react";
 
 const projects = [
   {
-    name: "PortFolio Website",
-    thumbnail: "/images/projects/portfolio.png",
-    liveLink: "",
-    githubLink: "https://github.com/coderakhand/portfolio-web",
-    tech: ["Nextjs", "Framer", "TailwindCSS"],
-  },
-  {
     name: "Chess WebApp",
     thumbnail: "/images/projects/chess.png",
-    liveLink: "",
+    liveLink: "/",
     githubLink: "https://github.com/coderakhand/chess-app",
     tech: [
       "Reactjs",
@@ -24,6 +17,13 @@ const projects = [
       "Blender",
       "Three.js",
     ],
+  },
+  {
+    name: "PortFolio Website",
+    thumbnail: "/images/projects/portfolio.png",
+    liveLink: "/",
+    githubLink: "https://github.com/coderakhand/portfolio-web",
+    tech: ["Nextjs", "Framer", "TailwindCSS"],
   },
 ];
 
@@ -55,8 +55,6 @@ const ProjectsCard = () => {
   return (
     <div className="relative w-full h-[400px] rounded-xl overflow-hidden">
       <MeshBgCard />
-
-      <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-white/10 blur-sm pointer-events-none z-10" />
 
       <div className="relative z-20 p-4 h-full flex flex-col items-center justify-center gap-3">
         <p
@@ -109,7 +107,8 @@ function ProjectShowcase({
   };
 
   return (
-    <div
+    <a
+      href={project.liveLink}
       className={`cursor-pointer relative h-full w-full snap-start shrink-0 flex items-center justify-center  shadow-lg transition-all duration-300`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -122,11 +121,7 @@ function ProjectShowcase({
           backgroundImage: `url(${project.thumbnail})`,
           backgroundPosition: "center",
         }}
-      >
-        <p className="flex flex-wrap w-[120px] absolute left-4 top-4 text-2xl font-bold rotate-335  bg-gradient-to-br from-slate-900 via-white/90 to-slate-900 text-transparent bg-clip-text">
-          {project.name}
-        </p>
-      </div>
+      ></div>
 
       {hovered && (
         <>
@@ -150,6 +145,10 @@ function ProjectShowcase({
             </a>
           </div>
 
+          <p className="flex flex-wrap absolute left-center top-15 text-4xl font-bold bg-[#EDEDED] text-transparent bg-clip-text drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] font-outline-4">
+            {project.name}
+          </p>
+
           <div className="absolute bottom-3 left-3 right-3 flex flex-wrap gap-2 z-20">
             {project.tech.map((tech, idx) => (
               <span
@@ -162,7 +161,7 @@ function ProjectShowcase({
           </div>
         </>
       )}
-    </div>
+    </a>
   );
 }
 

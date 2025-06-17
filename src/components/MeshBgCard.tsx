@@ -38,6 +38,12 @@ const MeshBgCard = () => {
         </defs>
         <rect width="100%" height="100%" fill="url(#squareMesh)" />
       </motion.svg>
+
+      <div
+        className={`${
+          mode === "light" ? "hidden" : ""
+        } absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-white/10 blur-sm pointer-events-none z-10`}
+      />
     </>
   );
 };
