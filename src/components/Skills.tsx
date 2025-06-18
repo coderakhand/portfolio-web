@@ -3,52 +3,12 @@ import { useModeStore } from "@/store/States";
 import { motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
-
-const frontendSkills = [
-  { name: "React", customStyle: { dark: "", light: "" } },
-  { name: "TailwindCSS", customStyle: { dark: "", light: "" } },
-  {
-    name: "Nextjs",
-    customStyle: {
-      dark: "bg-gradient-to-br from-black via-gray-100 to-white rounded-full",
-      light: "",
-    },
-  },
-  { name: "Zustand", customStyle: { dark: "", light: "" } },
-  {
-    name: "ShadCN",
-    customStyle: { dark: "bg-white rounded-full p-[0.8px]", light: "" },
-  },
-  { name: "Recoil", customStyle: { dark: "w-[15px]", light: "w-[15px]" } },
-  { name: "Framer Motion", customStyle: { dark: "", light: "" } },
-];
-
-const backendSkills = [
-  { name: "NodeJs", customStyle: { dark: "", light: "" } },
-  { name: "HonoJs", customStyle: { dark: "w-[16px]", light: "w-[16px]" } },
-  {
-    name: "ExpressJs",
-    customStyle: {
-      dark: "bg-white w-[40px] rounded-sm p-1",
-      light: "bg-gray-100 w-[40px] rounded-sm p-1",
-    },
-  },
-  { name: "Prisma ORM", customStyle: { dark: "", light: "" } },
-  { name: "MongoDB", customStyle: { dark: "", light: "" } },
-  { name: "SQL", customStyle: { dark: "w-[15px]", light: "w-[15px]" } },
-];
-
-const OtherSkills = [
-  { name: "Docker", customStyle: { dark: "", light: "" } },
-  { name: "Postman", customStyle: { dark: "", light: "" } },
-  { name: "CloudFlare Workers", customStyle: { dark: "", light: "" } },
-  { name: "Git", customStyle: { dark: "", light: "" } },
-  { name: "C / C++", customStyle: { dark: "w-[15px]", light: "w-[15px]" } },
-  {
-    name: "JavaScript / TypeScript",
-    customStyle: { dark: "w-[15px]", light: "w-[15px]" },
-  },
-];
+import {
+  frontendSkills,
+  backendSkills,
+  OtherSkills,
+  SkillType,
+} from "@/config";
 
 const Skills = () => {
   return (
@@ -62,9 +22,9 @@ const Skills = () => {
           backgroundSize: "8px 8px",
         }}
       >
-        <MarqueeRow items={frontendSkills} speed={24} reverse={false} />
-        <MarqueeRow items={backendSkills} speed={27} reverse={false} />
-        <MarqueeRow items={OtherSkills} speed={30} reverse={false} />
+        <MarqueeRow items={frontendSkills} speed={36} reverse={false} />
+        <MarqueeRow items={backendSkills} speed={36} reverse={false} />
+        <MarqueeRow items={OtherSkills} speed={36} reverse={false} />
       </div>
       <span className="z-10 absolute inset-y-0 right-0  blur-xl bg-gradient-to-l from-black/70 to-transparent w-[60px] h-full"></span>
     </div>
@@ -76,10 +36,7 @@ function MarqueeRow({
   speed,
   reverse = false,
 }: {
-  items: {
-    name: string;
-    customStyle: { dark: string; light: string };
-  }[];
+  items: SkillType[];
   speed: number;
   reverse?: boolean;
 }) {
@@ -119,14 +76,7 @@ function MarqueeRow({
   );
 }
 
-function SkillComponent({
-  item,
-}: {
-  item: {
-    name: string;
-    customStyle: { dark: string; light: string };
-  };
-}) {
+function SkillComponent({ item }: { item: SkillType }) {
   const mode = useModeStore((state) => state.mode);
   return (
     <div
@@ -137,9 +87,9 @@ function SkillComponent({
       } px-4 py-1 min-w-[100px] text-sm overflow-hidden`}
     >
       <Image
-        src={`/images/skills/${item.name
-          .toLowerCase()
-          .replaceAll(" ", "")}.svg`}
+        src={`/images/skills/${item.name.toLowerCase().replaceAll(" ", "")}.${
+          item.Imageformat ?? "svg"
+        }`}
         alt=""
         width={20}
         height={20}

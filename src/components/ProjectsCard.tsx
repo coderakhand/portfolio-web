@@ -19,6 +19,13 @@ const projects = [
     ],
   },
   {
+    name: "We Chat",
+    thumbnail: "/images/projects/wechat.png",
+    liveLink: "/",
+    githubLink: "https://github.com/coderakhand/we-chat",
+    tech: ["Reactjs", "TailwindCSS", "Mediasoup", "WebSocket"],
+  },
+  {
     name: "PortFolio Website",
     thumbnail: "/images/projects/portfolio.png",
     liveLink: "/",

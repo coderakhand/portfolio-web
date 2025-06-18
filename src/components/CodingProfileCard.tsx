@@ -1,33 +1,7 @@
 "use client";
 import Image from "next/image";
 import MeshBgCard from "./MeshBgCard";
-
-const codingPlatformsList = [
-  {
-    name: "leetcode",
-    logo: "leetcode.svg",
-    link: "",
-    maxRating: "1680",
-  },
-  {
-    name: "codeforces",
-    logo: "codeforces.svg",
-    link: "",
-    maxRating: "1155",
-  },
-  {
-    name: "atcoder",
-    logo: "atcoder.svg",
-    link: "",
-    maxRating: "526",
-  },
-  {
-    name: "codechef",
-    logo: "codechef.png",
-    link: "",
-    maxRating: "1519",
-  },
-];
+import { codingPlatformsList } from "@/config";
 
 export default function CodingProfileCard() {
   return (
