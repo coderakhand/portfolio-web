@@ -84,3 +84,36 @@ export const codingPlatformsList = [
     maxRating: "1519",
   },
 ];
+
+export const projectsList = [
+  {
+    name: "Chess WebApp",
+    thumbnail: "/images/projects/chess.png",
+    liveLink: "/",
+    githubLink: "https://github.com/coderakhand/chess-app",
+    tech: [
+      "Reactjs",
+      "WebSocket",
+      "Webrtc",
+      "TailwindCss",
+      "Framer",
+      "ShadCN",
+      "Blender",
+      "Three.js",
+    ],
+  },
+  {
+    name: "We Chat",
+    thumbnail: "/images/projects/wechat.png",
+    liveLink: "/",
+    githubLink: "https://github.com/coderakhand/we-chat",
+    tech: ["Reactjs", "TailwindCSS", "Mediasoup", "WebSocket"],
+  },
+  {
+    name: "PortFolio Website",
+    thumbnail: "/images/projects/portfolio.png",
+    liveLink: "/",
+    githubLink: "https://github.com/coderakhand/portfolio-web",
+    tech: ["Nextjs", "Framer", "TailwindCSS"],
+  },
+];

@@ -33,7 +33,7 @@ export default function ProfileCard() {
           width={100}
           height={100}
           alt="Akhand"
-          className="bg-black rounded-full max-xmd:w-[100px] max-sm:w-[80px]"
+          className="bg-black rounded-full max-xmd:w-[80px]"
         />
         <div className="w-full">
           <div className="max-xmd:flex max-xmd:flex-col max-xmd:items-center py-[10px]  xsm:px-[10px] md:px-[30px] xmd:py-[35px]">
@@ -51,6 +51,7 @@ export default function ProfileCard() {
           <p className="bg-gradient-to-br from-white/60 via-slate-600 to-white/60  text-transparent bg-clip-text text-xs absolute bottom-0 -right-6 max-md:bottom-1 max-xsm:text-[10px]">
             {'"College lectures are boring coding is cool!"'}
           </p>
+          <div className="absolute max-xsm:hidden max-xmd:bottom-0 max-xmd:-left-14 xmd:-right-7 xmd:top-0 bg-[url(/oscar.png)] bg-cover w-[100px] h-[100px]" />
         </div>
       </div>
     </motion.div>
