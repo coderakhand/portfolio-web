@@ -5,3 +5,16 @@
   --breakpoint-xmd: 450px;
   --breakpoint-xsm: 350px;
 }
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overscroll-behavior: none;
+}
+
+#__next {
+  height: 100%;
+  overflow: auto;
+}

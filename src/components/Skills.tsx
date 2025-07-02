@@ -11,22 +11,24 @@ import {
 } from "@/config";
 
 const Skills = () => {
+  const mode = useModeStore((state) => state.mode);
   return (
     <div className="relative w-full h-[105px] overflow-hidden flex flex-col gap-2 justify-center">
-      <span className="z-10 absolute inset-y-0 left-0  blur-xl bg-gradient-to-r from-black/70 to-transparent w-[60px] h-full"></span>
-      <div
-        className="relative w-full overflow-hidden flex flex-col gap-2 justify-center"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 0.7px 0.7px, rgba(6, 182, 212, 0.2) 0.7px, transparent 0)",
-          backgroundSize: "8px 8px",
-        }}
-      >
+      <span
+        className={`z-10 absolute inset-y-0 left-0  blur-xl bg-gradient-to-r ${
+          mode === "light" ? "from-black/70" : "from-black"
+        } to-transparent w-[60px] h-full`}
+      ></span>
+      <div className="relative w-full overflow-hidden flex flex-col gap-2 justify-center">
         <MarqueeRow items={frontendSkills} speed={36} reverse={false} />
         <MarqueeRow items={backendSkills} speed={36} reverse={false} />
         <MarqueeRow items={OtherSkills} speed={36} reverse={false} />
       </div>
-      <span className="z-10 absolute inset-y-0 right-0  blur-xl bg-gradient-to-l from-black/70 to-transparent w-[60px] h-full"></span>
+      <span
+        className={`z-10 absolute inset-y-0 right-0  blur-xl bg-gradient-to-l ${
+          mode === "light" ? "from-black/70" : "from-black"
+        } to-transparent w-[60px] h-full`}
+      ></span>
     </div>
   );
 };
@@ -82,7 +84,7 @@ function SkillComponent({ item }: { item: SkillType }) {
     <div
       className={`flex justify-center items-center gap-2 rounded-2xl ${
         mode === "dark"
-          ? "bg-gradient-to-br from-black/40 via-black/30 to-black/40 text-white"
+          ? " text-white whitespace-nowrap transition-colors disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-3.5 [&_svg]:shrink-0 bg-cardColor hover:bg-cardColorForeground shadow-[0px_32px_64px_-16px_#0000004c,0px_16px_32px_-8px_#0000004c,0px_8px_16px_-4px_#0000003d,0px_4px_8px_-2px_#0000003d,0px_-8px_16px_-1px_#00000029,0px_2px_4px_-1px_#0000003d,0px_0px_0px_1px_#000000,inset_0px_0px_0px_1px_#ffffff14,inset_0px_1px_0px_#ffffff33] hover:text-brand"
           : "bg-white/85"
       } px-4 py-1 min-w-[100px] text-sm overflow-hidden`}
     >

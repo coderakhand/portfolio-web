@@ -58,7 +58,7 @@ export const OtherSkills: SkillType[] = [
   },
 ];
 
-export const codingPlatformsList = [
+export const codingProfiles = [
   {
     name: "leetcode",
     logo: "leetcode.svg",
@@ -80,21 +80,36 @@ export const codingPlatformsList = [
   {
     name: "codechef",
     logo: "codechef.png",
-    link: "codechef.com/users/derak",
+    link: "https://codechef.com/users/derak",
     maxRating: "1519",
   },
 ];
 
-export const projectsList = [
+export const projects = [
   {
     name: "Chess WebApp",
     thumbnail: "/images/projects/chess.png",
     liveLink: "/",
+    details: [
+      {
+        title: "Real-time Multiplayer Chess",
+        content:
+          "Built using WebSockets for instant, bi-directional communication between players.",
+      },
+      {
+        title: "Features",
+        content: "Implemented Move Timer, Spectator Mode, Challenge Friends",
+      },
+      {
+        title: "Modular & Scalable",
+        content:
+          "Designed with scalability in mind, featuring structured user management and a custom game state management system.",
+      },
+    ],
     githubLink: "https://github.com/coderakhand/chess-app",
     tech: [
       "Reactjs",
       "WebSocket",
-      "Webrtc",
       "TailwindCss",
       "Framer",
       "ShadCN",
@@ -103,16 +118,30 @@ export const projectsList = [
     ],
   },
   {
-    name: "We Chat",
+    name: "V Meet",
     thumbnail: "/images/projects/wechat.png",
     liveLink: "/",
-    githubLink: "https://github.com/coderakhand/we-chat",
+    details: [
+      {
+        title: "Real-time video and audio communication",
+        content:
+          "It is powered by WebRTC using Mediasoup SFU for scalable, low-latency media streaming.",
+      },
+
+      {
+        title: "Optimized for Performance",
+        content:
+          "Uses simulcast, bandwidth estimation, and selective forwarding to support varying network conditions.",
+      },
+    ],
+    githubLink: "https://github.com/coderakhand/we-meet",
     tech: ["Reactjs", "TailwindCSS", "Mediasoup", "WebSocket"],
   },
   {
     name: "PortFolio Website",
     thumbnail: "/images/projects/portfolio.png",
     liveLink: "/",
+    details: [{ title: "", content: "" }],
     githubLink: "https://github.com/coderakhand/portfolio-web",
     tech: ["Nextjs", "Framer", "TailwindCSS"],
   },
