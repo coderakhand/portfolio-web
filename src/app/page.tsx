@@ -1,14 +1,5 @@
-"use client";
-import AnimatedPage from "@/Pages/AnimatedPage";
-import SimplePage from "@/Pages/SimplePage";
-import { useWebStyleStore } from "@/store/States";
+import HomePage from "@/Pages/HomePage";
 
 export default function Home() {
-  const webStyle = useWebStyleStore((state) => state.webStyle);
-
-  if (webStyle === "simple") {
-    return <SimplePage />;
-  }
-
-  return <AnimatedPage />;
+  return <HomePage />;
 }

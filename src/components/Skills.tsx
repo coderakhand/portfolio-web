@@ -13,13 +13,13 @@ import {
 const Skills = () => {
   const mode = useModeStore((state) => state.mode);
   return (
-    <div className="relative w-full h-[105px] overflow-hidden flex flex-col gap-2 justify-center">
+    <div className="relative w-full overflow-hidden flex flex-col gap-2 justify-center">
       <span
         className={`z-10 absolute inset-y-0 left-0  blur-xl bg-gradient-to-r ${
           mode === "light" ? "from-black/70" : "from-black"
         } to-transparent w-[60px] h-full`}
       ></span>
-      <div className="relative w-full overflow-hidden flex flex-col gap-2 justify-center">
+      <div className="relative w-full overflow-hidden flex flex-col gap-2 justify-center h-full">
         <MarqueeRow items={frontendSkills} speed={36} reverse={false} />
         <MarqueeRow items={backendSkills} speed={36} reverse={false} />
         <MarqueeRow items={OtherSkills} speed={36} reverse={false} />
@@ -52,7 +52,7 @@ function MarqueeRow({
   }, []);
 
   return (
-    <div className="w-full overflow-hidden">
+    <div className="w-full overflow-hidden py-0.5">
       <motion.div
         className="flex w-max gap-4"
         ref={rowRef}

@@ -1,13 +1,12 @@
-import { useModeStore } from "@/store/States";
-import { motion } from "framer-motion";
+"use client";
+import { motion } from "motion/react";
 
 const MeshBgCard = () => {
-  const mode = useModeStore((state) => state.mode);
   return (
     <>
       <motion.svg
         xmlns="http://www.w3.org/2000/svg"
-        className="absolute inset-0 w-full h-full opacity-40"
+        className="absolute inset-0 w-full h-full opacity-24"
         initial={{ x: 0, y: 0, scale: 1 }}
         animate={{
           x: [-10, 10, -10],
@@ -30,7 +29,7 @@ const MeshBgCard = () => {
             <rect width="20" height="20" fill="transparent" />
             <path
               d="M0 0 L0 20 M0 0 L20 0"
-              stroke={mode === "light" ? "#0f172a" : "white"}
+              stroke={"white"}
               strokeWidth="0.7"
               vectorEffect="non-scaling-stroke"
             />
@@ -40,9 +39,7 @@ const MeshBgCard = () => {
       </motion.svg>
 
       <div
-        className={`${
-          mode === "light" ? "hidden" : ""
-        } absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-white/10 blur-sm pointer-events-none z-10`}
+        className={`absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-white/10 blur-xs pointer-events-none z-10 opacity-75`}
       />
     </>
   );

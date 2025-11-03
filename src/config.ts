@@ -85,64 +85,64 @@ export const codingProfiles = [
   },
 ];
 
-export const projects = [
+export interface Project {
+  name: string;
+  demoVideo: string;
+  description: string;
+  liveLink: string;
+  githubLink: string;
+  tech: string[];
+  thumbnail?: string;
+  details?: {
+    title: string;
+    content: string;
+  }[];
+}
+
+export const fullStackProjects: Project[] = [
   {
-    name: "Chess WebApp",
-    thumbnail: "/images/projects/chess.png",
+    name: "Chezz",
+    demoVideo: "/videos/chezz.mp4",
+    description: "Chezz is an platform for playing online chess where users can interact in live chat, spectate game, make friends.",
     liveLink: "/",
-    details: [
-      {
-        title: "Real-time Multiplayer Chess",
-        content:
-          "Built using WebSockets for instant, bi-directional communication between players.",
-      },
-      {
-        title: "Features",
-        content: "Implemented Move Timer, Spectator Mode, Challenge Friends",
-      },
-      {
-        title: "Modular & Scalable",
-        content:
-          "Designed with scalability in mind, featuring structured user management and a custom game state management system.",
-      },
-    ],
     githubLink: "https://github.com/coderakhand/chess-app",
     tech: [
       "Reactjs",
-      "WebSocket",
-      "TailwindCss",
+      "Tailwindcss",
       "Framer",
       "ShadCN",
-      "Blender",
-      "Three.js",
+      "Zustand",
+      "WebSocket",
+      "Nodejs",
+      "Expressjs"
     ],
   },
   {
-    name: "V Meet",
-    thumbnail: "/images/projects/wechat.png",
+    name: "PortFolio",
+    demoVideo: "",
+    description: "",
     liveLink: "/",
-    details: [
-      {
-        title: "Real-time video and audio communication",
-        content:
-          "It is powered by WebRTC using Mediasoup SFU for scalable, low-latency media streaming.",
-      },
-
-      {
-        title: "Optimized for Performance",
-        content:
-          "Uses simulcast, bandwidth estimation, and selective forwarding to support varying network conditions.",
-      },
-    ],
-    githubLink: "https://github.com/coderakhand/we-meet",
-    tech: ["Reactjs", "TailwindCSS", "Mediasoup", "WebSocket"],
-  },
-  {
-    name: "PortFolio Website",
-    thumbnail: "/images/projects/portfolio.png",
-    liveLink: "/",
-    details: [{ title: "", content: "" }],
     githubLink: "https://github.com/coderakhand/portfolio-web",
     tech: ["Nextjs", "Framer", "TailwindCSS"],
+  },
+];
+
+export const frontendProjects: Project[] = [
+  {
+    name: "Formula1",
+    demoVideo: "/videos/formula1.mp4",
+    description:
+      "Redesigned official formula1 website with cursor reveal and scroll trigger animations for increasing user interactivity.",
+    liveLink: "https://formula1.coderakhand.xyz",
+    githubLink: "https://github.com/coderakhand/formula1-web",
+    tech: ["Nextjs", "Tailwindcss", "Framer", "GSAP"],
+  },
+  {
+    name: "Stake",
+    demoVideo: "/videos/stake.mp4",
+    description: "A Landing Page clone of stake official website build with perfection in ui.",
+    liveLink: "https://stake.coderakhand.xyz",
+    githubLink: "https://github.com/coderakhand/stake-clone",
+    tech: ["Nextjs", "Tailwindcss", "Framer"],
   },
 ];
