@@ -3,7 +3,7 @@ import ProjectShowcase from "./ProjectShowcase";
 
 const ProjectsCard = () => {
   return (
-    <div className="w-full px-1 mt-14 flex flex-col gap-14">
+    <div className="w-full px-1 mt-6 sm:mt-14 flex flex-col gap-14">
       <div className="flex flex-col gap-6">
         <h1 className="text-white/80 text-sm font-medium">Frontend Projects</h1>
         <div className="flex flex-wrap xmd:grid xmd:grid-cols-2 gap-10">

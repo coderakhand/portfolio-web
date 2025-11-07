@@ -1,7 +1,7 @@
 import { Project } from "@/config";
-import { FaExternalLinkAlt } from "react-icons/fa";
-import { FaCodeFork } from "react-icons/fa6";
 import { twMerge } from "tailwind-merge";
+import { VscGithub } from "react-icons/vsc";
+import { FaGlobe } from "react-icons/fa6";
 
 export default function ProjectShowcase({
   className,
@@ -25,20 +25,24 @@ export default function ProjectShowcase({
               autoPlay
               muted
               loop
-              className="group-hover:brightness-60"
+              className="group-hover:brightness-60 group-hover:grayscale-100"
             ></video>
           </a>
-          <div className="hidden absolute top-3 right-3 group-hover:flex items-center justify-end gap-4 text-white">
-            <a href={project.githubLink} target="_blank" className={`${project.githubLink == '/' ? "hidden": ""}`}>
-              <FaCodeFork />
-            </a>
-            <a href={project.liveLink} target="_blank" className={`${project.liveLink == '/' ? "hidden": ""}`}>
-              <FaExternalLinkAlt />
-            </a>
-          </div>
+          <ProjectLinks
+            githubLink={project.githubLink}
+            liveLink={project.liveLink}
+            className="max-md:group-hover:hidden hidden absolute top-3 right-3 group-hover:flex"
+          />
         </div>
         <div className="grow w-full py-2 px-3 flex flex-col gap-3">
-          <h3 className="text-sm font-bold text-white/80">{project.name}</h3>
+          <div className="grid grid-cols-2">
+            <h3 className="text-sm font-bold text-white/80">{project.name}</h3>
+            <ProjectLinks
+              githubLink={project.githubLink}
+              liveLink={project.liveLink}
+              className="md:hidden"
+            />
+          </div>
           <p className="text-xs text-white/30">{project.description}</p>
         </div>
         <div className="flex flex-wrap items-end gap-2  mb-4 px-3">
@@ -52,6 +56,40 @@ export default function ProjectShowcase({
           ))}
         </div>
       </div>
+    </div>
+  );
+}
+
+function ProjectLinks({
+  liveLink,
+  githubLink,
+  className,
+}: {
+  githubLink: string;
+  liveLink: string;
+  className?: string;
+}) {
+  return (
+    <div
+      className={twMerge(
+        "flex items-center justify-end gap-4 text-white/80",
+        className
+      )}
+    >
+      <a
+        href={githubLink}
+        target="_blank"
+        className={`${githubLink == "/" ? "hidden" : ""}`}
+      >
+        <VscGithub />
+      </a>
+      <a
+        href={liveLink}
+        target="_blank"
+        className={`${liveLink == "/" ? "hidden" : ""} `}
+      >
+        <FaGlobe />
+      </a>
     </div>
   );
 }

@@ -54,9 +54,9 @@ export default function HeatMap() {
   }, []);
 
   return (
-    <div className="flex flex-col w-full px-1 gap-1 my-3">
+    <div className="flex flex-col w-full px-1 gap-1  my-3">
       <div className="w-full grid grid-cols-2">
-        <div className="flex items-center text-white/40 font-semibold text-[10px]">
+        <div className="flex items-center text-white/80 font-semibold text-[10px]">
           Activity Map
         </div>
         <div className="flex justify-end items-center">
@@ -66,7 +66,7 @@ export default function HeatMap() {
               alt="Github Logo"
               width={50}
               height={50}
-              className="w-4 h-4 cursor-pointer bg-white rounded-xs"
+              className="w-4 h-4 cursor-pointer bg-white/80 rounded-xs"
             />
           </a>
         </div>
@@ -98,8 +98,8 @@ export default function HeatMap() {
               </div>
             ))}
       </div>
-      <div className="w-full grid grid-cols-2 text-white/40 text-[10px]">
-        <div className="flex text-xs text-white">
+      <div className="w-full flex justify-end sm:grid sm:grid-cols-2 text-white/40 text-[10px]">
+        <div className="hidden sm:flex text-xs text-white">
           {!toolTipDetails
             ? `${
                 isLoading
@@ -137,7 +137,7 @@ function SingleDay({
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
 }) {
-  const colors = ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"];
+  const colors = ["#505050", "#006E32", "#26A641", "#39D353", "#02ff38"];
   return (
     <div
       onMouseEnter={onMouseEnter}
@@ -145,9 +145,9 @@ function SingleDay({
       className="relative aspect-square w-[9.2px] rounded-[1.5px]"
     >
       <div
-        className={twMerge("aspect-square w-[9.2px] rounded-[1.5px]", className)}
+        className={twMerge(`aspect-square w-[9.2px] rounded-[1.5px] ${level === 0 ? "" : ""}`, className)}
         style={{
-          backgroundColor: colors[level] || "#ebedf0",
+          backgroundColor: colors[level] || "#505050",
         }}
       />
     </div>
